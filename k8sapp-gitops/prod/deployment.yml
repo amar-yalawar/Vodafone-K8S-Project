@@ -4,25 +4,6 @@ metadata:
   name: k8sapp
   namespace: prod
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: k8sapp
-  template:
-    metadata:
-      labels:
-        app: k8sapp
-    spec:
-      containers:
-      - name: k8sapp
-        image: 077414106691.dkr.ecr.ap-south-1.amazonaws.com/k8sapp:latest
-        ports:
-        - containerPort: 80apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: k8sapp
-  namespace: prod
-spec:
   replicas: 2
   selector:
     matchLabels:
@@ -33,7 +14,7 @@ spec:
         app: k8sapp
     spec:
       containers:
-      - name: myapp
-        image: 077414106691.dkr.ecr.ap-south-1.amazonaws.com/k8sapp:latest
-        ports:
-        - containerPort: 80
+        - name: k8sapp
+          image: 077414106691.dkr.ecr.ap-south-1.amazonaws.com/k8sapp:latest
+          ports:
+            - containerPort: 80
