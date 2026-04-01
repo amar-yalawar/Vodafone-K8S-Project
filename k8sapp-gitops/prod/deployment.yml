@@ -18,3 +18,5 @@ spec:
           image: 077414106691.dkr.ecr.ap-south-1.amazonaws.com/k8sapp:latest
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: ecr-secret
